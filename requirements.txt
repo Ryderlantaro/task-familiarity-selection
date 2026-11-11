@@ -1,0 +1,2 @@
+# Python 3.10 representation-extraction and selection environment.
+-r locks/extraction-py310.txt

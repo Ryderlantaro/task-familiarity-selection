@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/tmlr-group/TADS",
+  "commit": "5459de6e411fdd2997156a53beae3df68705b9ec",
+  "required_directory": "model_finetune",
+  "patch": "backend_local_changes.patch"
+}

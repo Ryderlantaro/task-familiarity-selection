@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "gsm8k": {"representations": "../cache/llama/t/gsm8k_anchors.npy"},
+    "truthfulqa": {"representations": "../cache/llama/t/truthfulqa_anchors.npy"},
+    "bbh": {"representations": "../cache/llama/t/bbh_anchors.npy"},
+    "mmlu": {"representations": "../cache/llama/t/mmlu_anchors.npy"},
+    "tydiqa": {
+      "representations": "../cache/llama/t/tydiqa_anchors.npy",
+      "languages": "../selections/tydiqa/task_reference/analysis_inputs.npz",
+      "language_key": "anchor_languages"
+    }
+  }
+}

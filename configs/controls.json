@@ -1,0 +1,16 @@
+{
+  "budget": 10000,
+  "training_seed": 42,
+  "shuffle_seed": 2601,
+  "sampling_seed": 42,
+  "window_shift": 0.2,
+  "evaluation_repeats": 1,
+  "conditions": ["t_only", "bands", "references", "gate_random", "shifted_windows"],
+  "tasks": {
+    "gsm8k": {"cache": "../cache/llama"},
+    "truthfulqa": {"cache": "../cache/llama"},
+    "bbh": {"cache": "../cache/llama"},
+    "mmlu": {"cache": "../cache/llama"},
+    "tydiqa": {"cache": "../cache/llama"}
+  }
+}

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv*/
+.env
+.env.*
+!.env.example
+.secrets/
+cache/
+runs/
+results/
+*.safetensors
+*.bin
+*.pt
+*.npy
+*.npz
+*.log

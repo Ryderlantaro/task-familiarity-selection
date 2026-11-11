@@ -1,0 +1,55 @@
+diff --git a/model_finetune/eval/bbh/run_eval.py b/model_finetune/eval/bbh/run_eval.py
+index 4b1f9e5..588b503 100644
+--- a/model_finetune/eval/bbh/run_eval.py
++++ b/model_finetune/eval/bbh/run_eval.py
+@@ -74,7 +74,7 @@ def main(args):
+                 tokenizer=args.tokenizer_name_or_path if args.tokenizer_name_or_path else args.model_name_or_path,
+                 tokenizer_mode="slow" if args.use_slow_tokenizer else "auto",
+                 tensor_parallel_size=torch.cuda.device_count(),
+-                gpu_memory_utilization=0.5,
++                gpu_memory_utilization=0.8,
+                 enforce_eager=True,
+                 max_model_len=4096,
+             )
+diff --git a/model_finetune/eval/gsm/run_eval.py b/model_finetune/eval/gsm/run_eval.py
+index ed9cf94..82be3ee 100644
+--- a/model_finetune/eval/gsm/run_eval.py
++++ b/model_finetune/eval/gsm/run_eval.py
+@@ -87,7 +87,7 @@ def main(args):
+                 tokenizer=args.tokenizer_name_or_path if args.tokenizer_name_or_path else args.model_name_or_path,
+                 tokenizer_mode="slow" if args.use_slow_tokenizer else "auto",
+                 tensor_parallel_size=torch.cuda.device_count(),
+-                gpu_memory_utilization=0.5,
++                gpu_memory_utilization=0.8,
+                 enable_lora=True,
+                 enforce_eager=True,
+                 max_model_len=4096,
+diff --git a/model_finetune/finetune.py b/model_finetune/finetune.py
+index ae2d4f6..7ef6411 100644
+--- a/model_finetune/finetune.py
++++ b/model_finetune/finetune.py
+@@ -158,6 +158,12 @@ def parse_args():
+         default=None,
+         help="Total number of training steps to perform. If provided, overrides num_train_epochs.",
+     )
++    parser.add_argument(
++        "--lr_scheduler_horizon_epochs",
++        type=int,
++        default=None,
++        help="Use the learning-rate schedule of this many full epochs while stopping at max_train_steps.",
++    )
+     parser.add_argument(
+         "--gradient_accumulation_steps",
+         type=int,
+@@ -725,7 +731,10 @@ def main():
+     # number of updates in the end matches the num_training_steps here.
+     # Here we need to set the num_training_steps to either using the entire training set (when epochs is specified) or we need to multiply the 
+     # num_training_steps by num_processes so that the total number of updates matches the num_training_steps.
+-    num_training_steps_for_scheduler = args.max_train_steps if overrode_max_train_steps else args.max_train_steps * accelerator.num_processes
++    if args.lr_scheduler_horizon_epochs is not None:
++        num_training_steps_for_scheduler = num_update_steps_per_epoch * args.lr_scheduler_horizon_epochs
++    else:
++        num_training_steps_for_scheduler = args.max_train_steps if overrode_max_train_steps else args.max_train_steps * accelerator.num_processes
+     lr_scheduler = get_scheduler(
+         name=args.lr_scheduler_type,
+         optimizer=optimizer,
