@@ -290,20 +290,14 @@
   {
     "file": "README.md",
     "source": "core_README.md",
-    "operation": "documentation",
-    "sha256": "330d7ce2761d23d62d8010c7fddc3de24e8e1c5c3200094432a27897fc113bb0"
+    "operation": "consolidated usage, experiment instructions, and third-party attribution",
+    "sha256": "a191ba5ccf1b4262f4505c78101d33e9263c24fff6baa172ab32e228bb9ab367"
   },
   {
     "file": "requirements.txt",
     "source": "core_requirements.txt",
-    "operation": "documentation",
-    "sha256": "7ed4741743a02682930bdb4639fe9639df6f382920c0f0886c286d3a317e78fa"
-  },
-  {
-    "file": "EXPERIMENTS.md",
-    "source": "reproducibility/core_EXPERIMENTS.md",
-    "operation": "experiment instructions",
-    "sha256": "1f5489d5fdfcd9cdb6bfdc987c1b6199be1865f890fb1f4fbf33ecd8f7699508"
+    "operation": "flattened extraction and selection dependency lock",
+    "sha256": "e58931d6b12d46d1b83ac192e1815ba235da0343fac7b32ac8973201f7d0cd00"
   },
   {
     "file": "configs/controls.json",
@@ -324,12 +318,6 @@
     "sha256": "f878bfd0c3805105e841bafebffb51e873773434e2a101bbe11c3548ade88e19"
   },
   {
-    "file": "locks/extraction-py310.txt",
-    "source": "reproducibility/locks/extraction-py310.txt",
-    "operation": "current environment version lock",
-    "sha256": "47d65e681404bb4d7c1b4d9530a6b111f72cfbaaa7a72423cf2de449ec03f8fb"
-  },
-  {
     "file": "locks/train_eval-py312.txt",
     "source": "reproducibility/locks/train_eval-py312.txt",
     "operation": "current environment version lock",
@@ -346,12 +334,6 @@
     "source": "publication packaging",
     "operation": "publication file filters",
     "sha256": "21fdfbbba7ff04c41a433edd1ae46edf7abf0ff129b5aa279929cc501a2b255d"
-  },
-  {
-    "file": "NOTICE.md",
-    "source": "publication packaging",
-    "operation": "third-party attribution",
-    "sha256": "052988b9b59f57d88b6e6402f8d997af9ac95fc931830b4732ac1f76bf1eaa69"
   },
   {
     "file": "dependencies/backend_LICENSE.txt",
