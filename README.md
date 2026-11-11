@@ -383,7 +383,6 @@ deviations. The command runs selection, not model extraction or training.
 - `main/scores/` and `main/adapters/`: scoring and selection rules.
 - `main/tools/`: input parsing, representation extraction, and cache validation.
 - `dependencies/` and `locks/`: backend identity, patches, and dependency versions.
-- `SOURCE_MAP.json`: source files and export transformations.
 
 ## Third-Party Sources
 
